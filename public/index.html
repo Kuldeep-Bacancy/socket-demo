@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Hi from Kuldeep</h1>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    // client emits the event called message
+    socket.emit('message', 'Hi');
+
+    // client recieve notification event from the server
+    socket.on('notification', (data) => {
+      console.log(`New notification: ${data}`);
+    })
+
+    // listen message event
+    socket.on('message', (data) => {
+      console.log(('message', data));
+    })
+  </script>
+</body>
+
+</html>
